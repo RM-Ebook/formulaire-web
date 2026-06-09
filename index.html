@@ -12,7 +12,7 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #fffcfc;
             padding-top: 30px;
         }
@@ -22,14 +22,12 @@
         }
 
         .logo {
-    width: 150px;
-    max-width: 30%;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px auto;
-    position: static;
-    transform: none;
-}
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+
         p {
             line-height: 1.8;
         }
@@ -90,11 +88,6 @@
             box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
         }
 
-        .submit-button,
-        .reset-button {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
         .error {
             color: red;
             font-size: 0.8em;
@@ -110,7 +103,10 @@
 </head>
 
 <body>
+
+    <!-- Remplacer logo.png par le chemin de votre logo -->
     <img src="logo.png" alt="Logo" class="logo">
+
     <p style="text-align: center;">
         <span style="font-size: 1.3em;">Bienvenue !</span><br>
         Inscrivez-vous ici pour bénéficier de nos <br> offres exclusives.
@@ -223,10 +219,7 @@
 
             if (valid) {
                 const url = `https://VOTRE_DOMAINE/VOTRE_CHEMIN.php?nom=${encodeURIComponent(lastname)}&prenom=${encodeURIComponent(firstname)}&mobile=${encodeURIComponent(phone)}&optInSMS=1&codePostal=${encodeURIComponent(codePostal)}&moisNaiss=${encodeURIComponent(moisNaiss)}&anneeNaiss=${encodeURIComponent(anneeNaiss)}`;
-                fetch(url, {
-                    method: 'GET',
-                    mode: 'no-cors'
-                }).then(() => {
+                fetch(url, { method: 'GET', mode: 'no-cors' }).then(() => {
                     const messageDiv = document.getElementById("confirmationMessage");
                     messageDiv.style.display = "block";
                     messageDiv.style.color = "green";
@@ -243,7 +236,7 @@
     </script>
 
     <footer style="text-align: center; margin-top: 50px; font-size: 0.7em; color: #555;">
-        <p>Copyright &copy; 2025</p>
+        <p>Copyright &copy; 2025 — <a href="#">Votre Entreprise</a></p>
     </footer>
 
 </body>
